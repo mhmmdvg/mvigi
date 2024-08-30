@@ -21,7 +21,7 @@ export default function ProjectCard({
 			target="_blank"
 			rel="noopener noreferrer"
 			aria-label={title}
-			className="flex w-full flex-row items-center justify-between rounded-md bg-popover p-2 mix-blend-difference transition-all hover:cursor-pointer hover:bg-primary/10"
+			className="anim flex w-full flex-row items-center justify-between rounded-md bg-popover p-2 mix-blend-difference transition-all hover:cursor-pointer hover:bg-primary/10"
 		>
 			<div className="flex flex-col ">
 				<h1>{title}</h1>

@@ -38,7 +38,7 @@ export default function SocialSection() {
 						Read.cv
 					</Link>{' '}
 					profile, or email me directly at{' '}
-					<span className="text-black underline">
+					<span className="text-primary underline">
 						muhammadvikrii99@gmail.com
 					</span>
 					.

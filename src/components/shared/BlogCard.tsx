@@ -13,7 +13,7 @@ export default function BlogCard({ title, slug, date }: TBlogCardProps) {
 		<Link
 			href={`/blog/${slug}`}
 			scroll={true}
-			className="flex flex-col rounded-md bg-popover p-2 mix-blend-difference transition-all hover:cursor-pointer hover:bg-primary/10"
+			className="anim flex flex-col rounded-md bg-popover p-2 mix-blend-difference transition-all hover:cursor-pointer hover:bg-primary/10"
 		>
 			<h1>{title}</h1>
 			{date && (
