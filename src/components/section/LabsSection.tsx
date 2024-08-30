@@ -8,7 +8,11 @@ export default function LabsSection() {
 
 	return (
 		<section className="flex flex-col space-y-3">
-			<Paragraph title="Latest from Labs" link href="labs" />
+			<Paragraph
+				title="Latest from Labs"
+				link
+				href={`/labs/${newLabs.slug}`}
+			/>
 			<LabsCard gridClass="regular-card">
 				{newLabs.slug === 'marquee' && <newLabs.child marqueeReverse />}
 				<newLabs.child />

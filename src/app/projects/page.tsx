@@ -1,4 +1,4 @@
-import Card from '@/components/shared/Card';
+import ProjectCard from '@/components/shared/ProjectCard';
 import { getAllPublishedContent } from '@/lib/notion';
 import type { Metadata } from 'next';
 import React from 'react';
@@ -23,13 +23,12 @@ export default async function Project() {
 				<h1 className="px-2 font-medium">My Project</h1>
 				{project &&
 					project.map((item, i) => (
-						<Card
+						<ProjectCard
 							key={i}
 							title={item.title}
 							href={item.link}
 							description={item.description}
 							date={item.date}
-							variant="project"
 						/>
 					))}
 			</section>
