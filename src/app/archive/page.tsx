@@ -2,6 +2,7 @@ import BlogCard from '@/components/shared/BlogCard';
 import Card from '@/components/shared/Card';
 import SectionTitle from '@/components/shared/SectionTitle';
 import { getAllPublishedContent } from '@/lib/notion';
+import type { Metadata } from 'next';
 import React from 'react';
 
 async function fetchBlogData() {
@@ -21,6 +22,11 @@ async function fetchCareerData() {
 
 	return res;
 }
+
+export const metadata: Metadata = {
+	title: 'Archive',
+	description: 'MVIGI Archive',
+};
 
 export default async function Archive() {
 	const posts = await fetchBlogData();
