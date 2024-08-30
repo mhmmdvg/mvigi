@@ -24,10 +24,12 @@ export default function CareerCard({
 				</p>
 			</div>
 			{date && (
-				<p className="line-clamp-1 font-mono text-xs text-muted-foreground">
-					{formateDateToMonthYear(date, '2-digit', 'short')}{' '}
-					{endDate &&
-						`- ${formateDateToMonthYear(endDate, '2-digit', 'short')}`}
+				<p className="line-clamp-1 text-xs text-muted-foreground">
+					{formateDateToMonthYear(date, '2-digit', 'short')}
+					{' — '}
+					{endDate
+						? `${formateDateToMonthYear(endDate, '2-digit', 'short')}`
+						: 'Now'}
 				</p>
 			)}
 		</div>
