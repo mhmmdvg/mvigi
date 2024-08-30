@@ -21,9 +21,9 @@ export default function LabsCard({
 	className,
 }: TLabsCard) {
 	const sizeVariant: { [key: string]: string } = {
-		'regular-card': 'aspect-[5/4] p-2',
+		'regular-card': 'aspect-[5/4] p-2 sm:aspect-square',
 		'medium-card': 'aspect-square p-8',
-		'large-card': 'aspect-[2/3] sm:aspect-[2/1] sm:col-span-2 p-8',
+		'large-card': 'aspect-square sm:aspect-[2/1] sm:col-span-2 p-8',
 		'default-card': '',
 	};
 

@@ -6,6 +6,7 @@ import { getDetailContent } from '@/lib/notion';
 import { getFilePathAndConfig } from '@/lib/readfile';
 import { formateDateToMonthYear } from '@/lib/utils';
 import { MoveLeft } from 'lucide-react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import React from 'react';
 
@@ -13,6 +14,18 @@ async function fetchLabsData(slug: string) {
 	const res = getDetailContent(slug);
 
 	return res;
+}
+
+export async function generateMetadata({
+	params,
+}: {
+	params: { slug: string };
+}): Promise<Metadata> {
+	const item = await fetchLabsData(params.slug);
+
+	return {
+		title: item?.title || params.slug,
+	};
 }
 
 export default async function LabsDetail({

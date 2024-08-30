@@ -1,8 +1,13 @@
-import Notification from '@/components/labs/notification';
 import LabsCard from '@/components/shared/LabsCard';
 import Paragraph from '@/components/shared/Paragraph';
 import { COMPONENTS } from '@/lib/labs';
+import type { Metadata } from 'next';
 import React from 'react';
+
+export const metadata: Metadata = {
+	title: 'Labs',
+	description: 'MVIGI Labs',
+};
 
 export default function Labs() {
 	return (
@@ -14,7 +19,7 @@ export default function Labs() {
 				</p>
 			</Paragraph>
 
-			<div className="grid w-full max-w-xl grid-flow-dense grid-cols-2 gap-6">
+			<div className="grid w-full max-w-xl grid-flow-dense gap-6 sm:grid-cols-2">
 				{COMPONENTS.map((component, i) => (
 					<LabsCard
 						key={i}

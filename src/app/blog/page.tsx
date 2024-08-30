@@ -1,6 +1,6 @@
-import Paragraph from '@/components/shared/Paragraph';
 import { getAllPublishedContent } from '@/lib/notion';
 import { formatDate } from '@/lib/utils';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import React from 'react';
 
@@ -9,6 +9,11 @@ async function fetchBlogData() {
 
 	return res;
 }
+
+export const metadata: Metadata = {
+	title: 'Blog',
+	description: 'MVIGI Blog',
+};
 
 export default async function Blog() {
 	const project = await fetchBlogData();

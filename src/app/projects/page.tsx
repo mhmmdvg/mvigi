@@ -1,7 +1,6 @@
 import Card from '@/components/shared/Card';
-import Paragraph from '@/components/shared/Paragraph';
 import { getAllPublishedContent } from '@/lib/notion';
-import { formatDate } from '@/lib/utils';
+import type { Metadata } from 'next';
 import React from 'react';
 
 async function fetchProjectData() {
@@ -9,6 +8,11 @@ async function fetchProjectData() {
 
 	return res;
 }
+
+export const metadata: Metadata = {
+	title: 'Project',
+	description: 'MVIGI Project',
+};
 
 export default async function Project() {
 	const project = await fetchProjectData();

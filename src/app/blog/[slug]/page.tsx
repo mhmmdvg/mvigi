@@ -1,5 +1,6 @@
 import { getDetailContent } from '@/lib/notion';
 import { MoveLeft } from 'lucide-react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import React from 'react';
 
@@ -7,6 +8,18 @@ async function fetchBlogData(slug: string) {
 	const res = getDetailContent(slug);
 
 	return res;
+}
+
+export async function generateMetadata({
+	params,
+}: {
+	params: { slug: string };
+}): Promise<Metadata> {
+	const blog = await fetchBlogData(params.slug);
+
+	return {
+		title: blog?.title || params.slug,
+	};
 }
 
 export default async function BlogDetail({
