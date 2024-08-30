@@ -90,7 +90,7 @@ export default function Dock() {
 							onClick={() => {
 								setTheme(theme === 'dark' ? 'light' : 'dark');
 							}}
-							className={`group/dock relative h-10 w-10 p-3 text-sm text-black transition-all duration-300 ease-in-out focus-visible:outline-none dark:text-white [&>svg]:fill-black dark:[&>svg]:fill-white`}
+							className={`group/dock relative h-10 w-10 p-3 text-sm text-primary transition-all duration-300 ease-in-out focus-visible:outline-none [&>svg]:fill-black dark:[&>svg]:fill-white`}
 							aria-label="Change theme button"
 						>
 							{item.icon}

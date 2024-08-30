@@ -1,4 +1,4 @@
-import { Home, Book, Square, FlaskRound } from 'lucide-react';
+import { Home, Square, FlaskRound, Package2 } from 'lucide-react';
 import Typescript from '/public/icons/typescript.svg';
 import Javascript from '/public/icons/javascript.svg';
 import Java from '/public/icons/java.svg';
@@ -23,9 +23,9 @@ export const navItems = [
 	},
 	{
 		id: 3,
-		label: 'Archive',
-		href: '/archive',
-		icon: <Book className="h-full w-full" />,
+		label: 'More',
+		href: '/more',
+		icon: <Package2 className="h-full w-full" />,
 	},
 	{
 		id: 4,

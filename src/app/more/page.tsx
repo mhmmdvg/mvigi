@@ -25,11 +25,11 @@ async function fetchCareerData() {
 }
 
 export const metadata: Metadata = {
-	title: 'Archive',
-	description: 'MVIGI Archive',
+	title: 'MVIGI',
+	description: 'MVIGI',
 };
 
-export default async function Archive() {
+export default async function More() {
 	const posts = await fetchBlogData();
 	const project = await fetchProjectData();
 	const career = await fetchCareerData();
