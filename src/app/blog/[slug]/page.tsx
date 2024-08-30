@@ -48,7 +48,7 @@ export default async function BlogDetail({
 			<div className="space-y-4">
 				<h1 className="text-xl font-medium">{blog.title}</h1>
 				<div
-					className="prose prose-h2:text-xl prose-h2:font-normal prose-p:font-light prose-p:text-muted-foreground prose-li:font-light prose-li:text-muted-foreground"
+					className="prose prose-h2:text-xl prose-h2:font-normal prose-h2:text-primary prose-p:font-light prose-p:text-muted-foreground prose-li:font-light prose-li:text-muted-foreground"
 					dangerouslySetInnerHTML={{ __html: blog.content }}
 				/>
 			</div>

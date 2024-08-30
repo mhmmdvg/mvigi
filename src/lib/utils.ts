@@ -20,11 +20,12 @@ export function formatDate(isoDate: string): string {
 
 export function formateDateToMonthYear(
 	isoDate: string,
+	yearType?: 'numeric' | '2-digit',
 	monthType?: 'numeric' | '2-digit' | 'long' | 'short' | 'narrow'
 ): string {
 	const date = new Date(isoDate);
 	return date.toLocaleDateString('en-US', {
-		year: 'numeric',
+		year: yearType,
 		month: monthType,
 	});
 }
