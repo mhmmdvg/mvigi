@@ -1,5 +1,6 @@
 import BlogCard from '@/components/shared/BlogCard';
-import Card from '@/components/shared/Card';
+import CareerCard from '@/components/shared/CareerCard';
+import ProjectCard from '@/components/shared/ProjectCard';
 import SectionTitle from '@/components/shared/SectionTitle';
 import { getAllPublishedContent } from '@/lib/notion';
 import type { Metadata } from 'next';
@@ -55,7 +56,7 @@ export default async function Archive() {
 					project
 						.slice(0, 3)
 						.map((item, i) => (
-							<Card
+							<ProjectCard
 								key={i}
 								title={item.title}
 								description={item.description}
@@ -68,13 +69,12 @@ export default async function Archive() {
 				<SectionTitle title="Career Path" />
 				{career &&
 					career.map((item, i) => (
-						<Card
+						<CareerCard
 							key={i}
 							title={item.title}
 							description={item.description}
 							date={item.date}
 							endDate={item.endDate}
-							variant="career"
 						/>
 					))}
 			</section>

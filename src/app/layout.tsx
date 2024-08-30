@@ -6,7 +6,7 @@ import { ThemeProvider } from '@/components/shared/ThemeProvider';
 
 export const metadata: Metadata = {
 	title: 'MVIGI',
-	description: 'MVIGI Portfolio',
+	description: 'MVIGI Frontend Developer',
 };
 
 export default function RootLayout({
