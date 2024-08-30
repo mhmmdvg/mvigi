@@ -14,7 +14,7 @@ export default function Code({ code, lang }: TCodeProps) {
 			</Suspense>
 			<div className="absolute right-0 top-0 z-0 h-full w-12 bg-gradient-to-r from-transparent to-[#f7f7f7] dark:to-[#101010]" />
 
-			<CopyButton text={code} className="absolute right-2 top-2" />
+			<CopyButton text={code} className="absolute right-2 top-2 h-8 w-8" />
 		</div>
 	);
 }
