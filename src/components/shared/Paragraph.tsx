@@ -18,7 +18,7 @@ export default function Paragraph({
 	href = '/',
 }: TParagraphProps) {
 	return (
-		<div className="flex flex-col space-y-3">
+		<div className="anim flex flex-col space-y-3">
 			<div className="flex flex-row items-center justify-between">
 				<div className="flex flex-col">
 					<h1 className="font-medium">{title}</h1>

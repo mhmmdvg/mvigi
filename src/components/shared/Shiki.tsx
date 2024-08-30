@@ -18,7 +18,7 @@ export default async function Shiki({ code, lang = 'typescript' }: TCodeProps) {
 	return (
 		<div
 			className={cn(
-				'no-scrollbar w-full min-w-0 overflow-x-auto rounded-xl text-xs md:text-sm [&_code]:block [&_code]:w-fit [&_code]:min-w-full'
+				'anim no-scrollbar w-full min-w-0 overflow-x-auto rounded-xl text-xs md:text-sm [&_code]:block [&_code]:w-fit [&_code]:min-w-full'
 			)}
 			dangerouslySetInnerHTML={{ __html: html }}
 		/>

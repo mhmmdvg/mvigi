@@ -4,7 +4,7 @@ import Shiki, { TCodeProps } from './Shiki';
 
 export default function Code({ code, lang }: TCodeProps) {
 	return (
-		<div className="relative h-fit w-full overflow-hidden rounded-lg bg-[#f7f7f7] dark:bg-[#101010]">
+		<div className="anim relative h-fit w-full overflow-hidden rounded-lg bg-[#f7f7f7] dark:bg-[#101010]">
 			<Suspense
 				fallback={
 					<div className="h-[272px] w-full animate-pulse bg-[#f7f7f7] dark:bg-[#101010]" />

@@ -30,7 +30,7 @@ export default function LabsCard({
 	return (
 		<div
 			className={cn(
-				'group/card relative flex h-auto w-full flex-col items-center justify-center overflow-hidden rounded-xl border ',
+				'anim group/card relative flex h-auto w-full flex-col items-center justify-center overflow-hidden rounded-xl border ',
 				sizeVariant[gridClass || 'regular-card'],
 				className
 			)}
