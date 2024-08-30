@@ -57,7 +57,7 @@ export default async function LabsDetail({
 			</Link>
 			<Paragraph
 				title={posts?.title}
-				subtitle={formateDateToMonthYear(posts?.date, 'long')}
+				subtitle={formateDateToMonthYear(posts?.date, 'numeric', 'long')}
 			>
 				<div className="space-y-4">
 					{posts?.content && (
