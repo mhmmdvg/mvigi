@@ -4,13 +4,11 @@ import ButtonShareLink from '@/components/shared/ButtonShareLink';
 import Code from '@/components/shared/Code';
 import LabsCard from '@/components/shared/LabsCard';
 import Paragraph from '@/components/shared/Paragraph';
-import { Button } from '@/components/ui/button';
 import { COMPONENTS } from '@/lib/labs';
 import { getDetailContent } from '@/lib/notion';
 import { getFilePathAndConfig } from '@/lib/readfile';
 import { formateDateToMonthYear } from '@/lib/utils';
-import { Copy, MoveLeft, Twitter } from 'lucide-react';
-import type { Metadata } from 'next';
+import { MoveLeft } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 
@@ -33,10 +31,10 @@ export async function generateMetadata({
 
 	return {
 		title: item?.title || params.slug,
-		description: `Read more about "${item.title}" on my labs. 🚀`,
+		description: item.description,
 		openGraph: {
 			title: item?.title || params.slug,
-			description: `Read more about "${item.title}" on my labs. 🚀`,
+			description: item.description,
 			url: `${baseUrl}/blog/${item?.slug}`,
 			type: 'article',
 			images: [
