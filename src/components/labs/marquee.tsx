@@ -1,6 +1,7 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { cn } from '@/lib/utils';
+import { NextPage } from 'next';
 
 const items = [
 	{
@@ -45,7 +46,7 @@ type TMarqueeLabs = {
 	marqueeReverse?: boolean;
 };
 
-const MarqueeLabs: FC<TMarqueeLabs> = ({ marqueeReverse }) => {
+const MarqueeLabs: NextPage<TMarqueeLabs> = ({ marqueeReverse }) => {
 	return (
 		<div className="group/marquee flex gap-x-4 overflow-hidden p-2">
 			<div className="absolute left-0 top-0 z-10 h-full w-8 bg-gradient-to-r from-background to-transparent" />
