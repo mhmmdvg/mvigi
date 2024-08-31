@@ -51,7 +51,7 @@ export default async function BlogDetail({
 
 				<div className="flex flex-row items-center space-x-2">
 					<ButtonShareLink />
-					<ButtonShare />
+					<ButtonShare text={blog.title} />
 				</div>
 			</div>
 			<div className="space-y-4">

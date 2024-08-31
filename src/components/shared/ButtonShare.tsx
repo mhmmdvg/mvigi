@@ -9,9 +9,13 @@ import {
 	TooltipTrigger,
 } from '../ui/tooltip';
 
-export default function ButtonShare() {
+type TButtonShareProps = {
+	text: string;
+};
+
+export default function ButtonShare({ text }: TButtonShareProps) {
 	const handleShare = async () => {
-		const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent('test')}&url=${encodeURIComponent(window.location.href)}`;
+		const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`;
 
 		window.open(twitterUrl, '_blank');
 	};

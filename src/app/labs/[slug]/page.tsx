@@ -62,7 +62,7 @@ export default async function LabsDetail({
 
 				<div className="flex flex-row items-center space-x-2">
 					<ButtonShareLink />
-					<ButtonShare />
+					<ButtonShare text={item.name} />
 				</div>
 			</div>
 
