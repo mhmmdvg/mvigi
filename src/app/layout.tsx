@@ -3,10 +3,42 @@ import { GeistSans } from 'geist/font/sans';
 import './globals.css';
 import Dock from '@/components/shared/Dock';
 import { ThemeProvider } from '@/components/shared/ThemeProvider';
+import { baseUrl } from './sitemap';
 
 export const metadata: Metadata = {
+	metadataBase: new URL(baseUrl),
 	title: 'MVIGI',
 	description: 'MVIGI Frontend Developer',
+	openGraph: {
+		title: 'MVIGI Frontend Developer',
+		url: baseUrl,
+		siteName: 'MVigi',
+		locale: 'en-US',
+		type: 'website',
+		images: [
+			{
+				url: `${baseUrl}/og`,
+			},
+		],
+	},
+
+	twitter: {
+		card: 'summary_large_image',
+		title: 'MVigi',
+		images: [`${baseUrl}/og`],
+	},
+
+	robots: {
+		index: true,
+		follow: true,
+		googleBot: {
+			index: true,
+			follow: true,
+			'max-video-preview': -1,
+			'max-image-preview': 'large',
+			'max-snippet': -1,
+		},
+	},
 };
 
 export default function RootLayout({

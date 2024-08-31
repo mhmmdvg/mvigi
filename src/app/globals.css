@@ -7,6 +7,11 @@ body {
 	scroll-behavior: smooth;
 }
 
+@font-face {
+	font-family: 'Geist';
+	src: url(/public/fonts/GeistVF.woff2) format('woff2');
+}
+
 @layer base {
 	:root {
 		--background: 0 0% 100%;
