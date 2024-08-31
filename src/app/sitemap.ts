@@ -1,6 +1,6 @@
 import { getAllPublishedContent } from '@/lib/notion';
 
-export const baseUrl = 'https://mvigi.vercel.app/';
+export const baseUrl = 'https://mvigi.vercel.app';
 
 export default async function sitemap() {
 	const posts = await getAllPublishedContent('Blog');
