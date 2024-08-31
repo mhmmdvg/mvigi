@@ -24,42 +24,31 @@ export async function generateMetadata({
 	params,
 }: {
 	params: { slug: string };
-}): Promise<Metadata> {
+}) {
 	const item = await fetchLabsData(params.slug);
 
+	if (!item) {
+		return null;
+	}
+
 	return {
-		metadataBase: new URL(baseUrl),
 		title: item?.title || params.slug,
-		description: 'MVIGI Frontend Developer',
+		description: `Read more about "${item.title}" on my blog. 🚀`,
 		openGraph: {
-			title: 'MVIGI Frontend Developer',
-			url: baseUrl,
-			siteName: 'MVigi',
-			locale: 'en-US',
-			type: 'website',
+			title: item?.title || params.slug,
+			description: `Read more about "${item.title}" on my blog. 🚀`,
+			url: `${baseUrl}/blog/${item?.slug}`,
+			type: 'article',
 			images: [
 				{
 					url: `${baseUrl}/api/og?title=${item?.title}`,
 				},
 			],
 		},
-
 		twitter: {
 			card: 'summary_large_image',
-			title: 'MVigi',
+			title: item.title,
 			images: [`${baseUrl}/api/og?title=${item?.title}`],
-		},
-
-		robots: {
-			index: true,
-			follow: true,
-			googleBot: {
-				index: true,
-				follow: true,
-				'max-video-preview': -1,
-				'max-image-preview': 'large',
-				'max-snippet': -1,
-			},
 		},
 	};
 }

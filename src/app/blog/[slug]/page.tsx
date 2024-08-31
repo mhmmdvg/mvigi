@@ -3,7 +3,6 @@ import ButtonShare from '@/components/shared/ButtonShare';
 import ButtonShareLink from '@/components/shared/ButtonShareLink';
 import { getDetailContent } from '@/lib/notion';
 import { MoveLeft } from 'lucide-react';
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import React from 'react';
 
@@ -17,42 +16,31 @@ export async function generateMetadata({
 	params,
 }: {
 	params: { slug: string };
-}): Promise<Metadata> {
+}) {
 	const blog = await fetchBlogData(params.slug);
 
+	if (!blog) {
+		return null;
+	}
+
 	return {
-		metadataBase: new URL(baseUrl),
 		title: blog?.title || params.slug,
-		description: 'MVIGI Frontend Developer',
+		description: `Read more about "${blog.title}" on my blog. 🚀`,
 		openGraph: {
-			title: 'MVIGI Frontend Developer',
-			url: baseUrl,
-			siteName: 'MVigi',
-			locale: 'en-US',
-			type: 'website',
+			title: blog?.title || params.slug,
+			description: `Read more about "${blog.title}" on my blog. 🚀`,
+			url: `${baseUrl}/blog/${blog?.slug}`,
+			type: 'article',
 			images: [
 				{
 					url: `${baseUrl}/api/og?title=${blog?.title}`,
 				},
 			],
 		},
-
 		twitter: {
 			card: 'summary_large_image',
-			title: 'MVigi',
+			title: blog.title,
 			images: [`${baseUrl}/api/og?title=${blog?.title}`],
-		},
-
-		robots: {
-			index: true,
-			follow: true,
-			googleBot: {
-				index: true,
-				follow: true,
-				'max-video-preview': -1,
-				'max-image-preview': 'large',
-				'max-snippet': -1,
-			},
 		},
 	};
 }
