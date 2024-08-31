@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 		type: 'website',
 		images: [
 			{
-				url: `${baseUrl}/og`,
+				url: `${baseUrl}/api/og`,
 			},
 		],
 	},
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 	twitter: {
 		card: 'summary_large_image',
 		title: 'MVigi',
-		images: [`${baseUrl}/og`],
+		images: [`${baseUrl}/api/og`],
 	},
 
 	robots: {

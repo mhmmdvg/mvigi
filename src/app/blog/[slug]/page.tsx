@@ -1,3 +1,4 @@
+import { baseUrl } from '@/app/sitemap';
 import ButtonShare from '@/components/shared/ButtonShare';
 import ButtonShareLink from '@/components/shared/ButtonShareLink';
 import { getDetailContent } from '@/lib/notion';
@@ -20,7 +21,39 @@ export async function generateMetadata({
 	const blog = await fetchBlogData(params.slug);
 
 	return {
+		metadataBase: new URL(baseUrl),
 		title: blog?.title || params.slug,
+		description: 'MVIGI Frontend Developer',
+		openGraph: {
+			title: 'MVIGI Frontend Developer',
+			url: baseUrl,
+			siteName: 'MVigi',
+			locale: 'en-US',
+			type: 'website',
+			images: [
+				{
+					url: `${baseUrl}/api/og?title=${blog?.title}`,
+				},
+			],
+		},
+
+		twitter: {
+			card: 'summary_large_image',
+			title: 'MVigi',
+			images: [`${baseUrl}/api/og?title=${blog?.title}`],
+		},
+
+		robots: {
+			index: true,
+			follow: true,
+			googleBot: {
+				index: true,
+				follow: true,
+				'max-video-preview': -1,
+				'max-image-preview': 'large',
+				'max-snippet': -1,
+			},
+		},
 	};
 }
 
