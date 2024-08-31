@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 	twitter: {
 		card: 'summary_large_image',
 		title: 'MVigi',
-		images: [`${baseUrl}/api/og`],
+		images: [{ url: `${baseUrl}/api/og` }],
 	},
 
 	robots: {
