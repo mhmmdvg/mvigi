@@ -51,7 +51,7 @@ export async function GET(request: Request) {
 						right: '20px',
 						fontFamily: 'Geist',
 						fontWeight: 400,
-						fontSize: '1.2rem',
+						fontSize: '2rem',
 					}}
 				>
 					— MVIGI
