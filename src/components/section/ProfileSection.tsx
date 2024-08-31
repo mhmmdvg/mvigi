@@ -10,7 +10,7 @@ export default function ProfileSection() {
 					fill
 					style={{ objectFit: 'cover' }}
 					alt="me"
-					loading="lazy"
+					priority
 				/>
 			</div>
 			<div className=" flex flex-col">
