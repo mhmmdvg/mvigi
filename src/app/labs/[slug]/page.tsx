@@ -20,42 +20,6 @@ async function fetchLabsData(slug: string) {
 	return res;
 }
 
-export const metadata: Metadata = {
-	metadataBase: new URL(baseUrl),
-	title: 'MVIGI',
-	description: 'MVIGI Frontend Developer',
-	openGraph: {
-		title: 'MVIGI Frontend Developer',
-		url: baseUrl,
-		siteName: 'MVigi',
-		locale: 'en-US',
-		type: 'website',
-		images: [
-			{
-				url: `${baseUrl}/api/og`,
-			},
-		],
-	},
-
-	twitter: {
-		card: 'summary_large_image',
-		title: 'MVigi',
-		images: [`${baseUrl}/api/og`],
-	},
-
-	robots: {
-		index: true,
-		follow: true,
-		googleBot: {
-			index: true,
-			follow: true,
-			'max-video-preview': -1,
-			'max-image-preview': 'large',
-			'max-snippet': -1,
-		},
-	},
-};
-
 export async function generateMetadata({
 	params,
 }: {
