@@ -5,7 +5,7 @@ export const runtime = 'edge';
 
 async function getGeist() {
 	const response = await fetch(
-		new URL('@/public/fonts/GeistVF.ttf', import.meta.url)
+		new URL('/public/fonts/GeistVF.ttf', import.meta.url)
 	);
 
 	const geistSans = await response.arrayBuffer();
@@ -32,7 +32,7 @@ export async function GET(request: Request) {
 					style={{
 						fontSize: 42,
 						fontWeight: 500,
-						fontFamily: 'Geist',
+						// fontFamily: 'Geist',
 					}}
 				>
 					MVigi Frontend Developer
@@ -43,7 +43,7 @@ export async function GET(request: Request) {
 						position: 'absolute',
 						bottom: '20px',
 						right: '20px',
-						fontFamily: 'Geist',
+						// fontFamily: 'Geist',
 						fontSize: '1rem',
 					}}
 				>
@@ -54,13 +54,13 @@ export async function GET(request: Request) {
 		{
 			width: 1200,
 			height: 630,
-			fonts: [
-				{
-					name: 'Geist',
-					data: await getGeist(),
-					style: 'normal',
-				},
-			],
+			// fonts: [
+			// 	{
+			// 		name: 'Geist',
+			// 		data: await getGeist(),
+			// 		style: 'normal',
+			// 	},
+			// ],
 		}
 	);
 }
