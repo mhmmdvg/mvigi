@@ -5,7 +5,7 @@ export const runtime = 'edge';
 
 async function getGeist() {
 	const response = await fetch(
-		new URL('/public/fonts/GeistVF.ttf', import.meta.url)
+		new URL('@/public/fonts/GeistVF.ttf', import.meta.url)
 	);
 
 	const geistSans = await response.arrayBuffer();
