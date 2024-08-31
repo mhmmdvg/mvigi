@@ -1,11 +1,14 @@
+import ButtonShare from '@/components/shared/ButtonShare';
+import ButtonShareLink from '@/components/shared/ButtonShareLink';
 import Code from '@/components/shared/Code';
 import LabsCard from '@/components/shared/LabsCard';
 import Paragraph from '@/components/shared/Paragraph';
+import { Button } from '@/components/ui/button';
 import { COMPONENTS } from '@/lib/labs';
 import { getDetailContent } from '@/lib/notion';
 import { getFilePathAndConfig } from '@/lib/readfile';
 import { formateDateToMonthYear } from '@/lib/utils';
-import { MoveLeft } from 'lucide-react';
+import { Copy, MoveLeft, Twitter } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import React from 'react';
@@ -51,10 +54,18 @@ export default async function LabsDetail({
 
 	return (
 		<main className="space-y-7">
-			<Link href={'.'} className="flex flex-row items-center space-x-2">
-				<MoveLeft className="h-4 w-4" />
-				<p className="text-sm">back</p>
-			</Link>
+			<div className="mb-12 flex flex-row items-center justify-between">
+				<Link href={'.'} className="flex flex-row items-center space-x-2">
+					<MoveLeft className="h-4 w-4" />
+					<p className="text-sm">back</p>
+				</Link>
+
+				<div className="flex flex-row items-center space-x-2">
+					<ButtonShareLink />
+					<ButtonShare />
+				</div>
+			</div>
+
 			<Paragraph
 				title={posts?.title}
 				subtitle={formateDateToMonthYear(posts?.date, 'numeric', 'long')}
