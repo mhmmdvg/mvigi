@@ -33,10 +33,10 @@ export async function generateMetadata({
 
 	return {
 		title: item?.title || params.slug,
-		description: `Read more about "${item.title}" on my blog. 🚀`,
+		description: `Read more about "${item.title}" on my labs. 🚀`,
 		openGraph: {
 			title: item?.title || params.slug,
-			description: `Read more about "${item.title}" on my blog. 🚀`,
+			description: `Read more about "${item.title}" on my labs. 🚀`,
 			url: `${baseUrl}/blog/${item?.slug}`,
 			type: 'article',
 			images: [
