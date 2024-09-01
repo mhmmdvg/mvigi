@@ -59,7 +59,13 @@ export async function GET(request: Request) {
 						right: '60px',
 					}}
 				>
-					<img height={64} width={64} src={iconData} alt="mvigi" />
+					<img
+						style={{ marginRight: '6px' }}
+						height={56}
+						width={56}
+						src={iconData}
+						alt="mvigi"
+					/>
 					<div
 						style={{
 							fontFamily: 'Geist',
