@@ -1,9 +1,6 @@
 import { baseUrl } from '@/app/sitemap';
-import ButtonShare from '@/components/shared/ButtonShare';
-import ButtonShareLink from '@/components/shared/ButtonShareLink';
+import HeaderDetail from '@/components/details/HeaderDetail';
 import { getDetailContent } from '@/lib/notion';
-import { MoveLeft } from 'lucide-react';
-import Link from 'next/link';
 import React from 'react';
 
 async function fetchBlogData(slug: string) {
@@ -64,17 +61,7 @@ export default async function BlogDetail({
 
 	return (
 		<main className="space-y-7">
-			<div className="mb-12 flex flex-row items-center justify-between">
-				<Link href={'.'} className="flex flex-row items-center space-x-2">
-					<MoveLeft className="h-4 w-4" />
-					<p className="text-sm">back to all post</p>
-				</Link>
-
-				<div className="flex flex-row items-center space-x-2">
-					<ButtonShareLink />
-					<ButtonShare text={blog.title} />
-				</div>
-			</div>
+			<HeaderDetail backLabel="back to all post" shareName={blog.title} />
 			<div className="space-y-4">
 				<h1 className="text-xl font-medium">{blog.title}</h1>
 				<div

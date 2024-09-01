@@ -3,10 +3,43 @@ import Paragraph from '@/components/shared/Paragraph';
 import { COMPONENTS } from '@/lib/labs';
 import type { Metadata } from 'next';
 import React from 'react';
+import { baseUrl } from '../sitemap';
 
 export const metadata: Metadata = {
+	metadataBase: new URL(baseUrl),
 	title: 'Labs',
-	description: 'MVIGI Labs',
+	description: 'my creative space for experimenting with UI',
+	openGraph: {
+		title: 'Labs',
+		description: 'my creative space for experimenting with UI',
+		url: baseUrl,
+		siteName: 'Labs',
+		locale: 'en-US',
+		type: 'website',
+		images: [
+			{
+				url: `${baseUrl}/api/og?title=My Creative Space 🎨`,
+			},
+		],
+	},
+
+	twitter: {
+		card: 'summary_large_image',
+		title: 'Labs',
+		images: [`${baseUrl}/api/og?title=My Creative Space 🎨`],
+	},
+
+	robots: {
+		index: true,
+		follow: true,
+		googleBot: {
+			index: true,
+			follow: true,
+			'max-video-preview': -1,
+			'max-image-preview': 'large',
+			'max-snippet': -1,
+		},
+	},
 };
 
 export default function Labs() {

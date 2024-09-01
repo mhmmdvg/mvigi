@@ -1,13 +1,13 @@
 'use client';
 import React from 'react';
 import { Button } from '../ui/button';
-import { Twitter } from 'lucide-react';
 import {
 	Tooltip,
 	TooltipContent,
 	TooltipProvider,
 	TooltipTrigger,
 } from '../ui/tooltip';
+import { TwitterLogoIcon } from '@radix-ui/react-icons';
 
 type TButtonShareProps = {
 	text: string;
@@ -31,7 +31,7 @@ export default function ButtonShare({ text }: TButtonShareProps) {
 						aria-label="share-on-twitter"
 						onClick={handleShare}
 					>
-						<Twitter className="h-3.5 w-3.5" />
+						<TwitterLogoIcon className="h-3.5 w-3.5" />
 					</Button>
 				</TooltipTrigger>
 				<TooltipContent

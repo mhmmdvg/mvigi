@@ -1,4 +1,5 @@
 import { baseUrl } from '@/app/sitemap';
+import HeaderDetail from '@/components/details/HeaderDetail';
 import ButtonShare from '@/components/shared/ButtonShare';
 import ButtonShareLink from '@/components/shared/ButtonShareLink';
 import Code from '@/components/shared/Code';
@@ -8,8 +9,6 @@ import { COMPONENTS } from '@/lib/labs';
 import { getDetailContent } from '@/lib/notion';
 import { getFilePathAndConfig } from '@/lib/readfile';
 import { formateDateToMonthYear } from '@/lib/utils';
-import { MoveLeft } from 'lucide-react';
-import Link from 'next/link';
 import React from 'react';
 
 async function fetchLabsData(slug: string) {
@@ -74,18 +73,7 @@ export default async function LabsDetail({
 
 	return (
 		<main className="space-y-7">
-			<div className="mb-12 flex flex-row items-center justify-between">
-				<Link href={'.'} className="flex flex-row items-center space-x-2">
-					<MoveLeft className="h-4 w-4" />
-					<p className="text-sm">back</p>
-				</Link>
-
-				<div className="flex flex-row items-center space-x-2">
-					<ButtonShareLink />
-					<ButtonShare text={item.name} />
-				</div>
-			</div>
-
+			<HeaderDetail backLabel="back" shareName={item.name} />
 			<Paragraph
 				title={posts?.title}
 				subtitle={formateDateToMonthYear(posts?.date, 'numeric', 'long')}

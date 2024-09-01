@@ -1,9 +1,8 @@
 import { cn } from '@/lib/utils';
-import { NextPage } from 'next';
 import React from 'react';
 import { Button } from '../ui/button';
 import Link from 'next/link';
-import { MoveRight } from 'lucide-react';
+import { ArrowRightIcon } from '@radix-ui/react-icons';
 
 type TLabsCard = {
 	children: React.ReactNode;
@@ -53,7 +52,7 @@ export default function LabsCard({
 					className="absolute right-3 top-3 z-[100] h-8 w-8 transition-all duration-300 ease-in-out lg:-translate-y-8 lg:scale-75 lg:opacity-0 lg:group-hover/card:translate-y-0 lg:group-hover/card:scale-100 lg:group-hover/card:opacity-100"
 				>
 					<Link href={`labs/${slug}`} scroll={true}>
-						<MoveRight className="h-4 w-4" />
+						<ArrowRightIcon className="h-4 w-4" />
 					</Link>
 				</Button>
 			)}

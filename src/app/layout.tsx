@@ -7,10 +7,11 @@ import { baseUrl } from './sitemap';
 
 export const metadata: Metadata = {
 	metadataBase: new URL(baseUrl),
-	title: 'MVIGI',
-	description: 'MVIGI Frontend Developer',
+	title: 'Muhammad Vikri',
+	description: "I'm an enthusiastic Frontend Developer",
 	openGraph: {
-		title: 'MVIGI Frontend Developer',
+		title: 'mvigi',
+		description: "I'm an enthusiastic Frontend Developer",
 		url: baseUrl,
 		siteName: 'MVigi',
 		locale: 'en-US',
@@ -25,6 +26,7 @@ export const metadata: Metadata = {
 	twitter: {
 		card: 'summary_large_image',
 		title: 'MVigi',
+		description: "I'm an enthusiastic Frontend Developer",
 		images: [`${baseUrl}/api/og`],
 	},
 

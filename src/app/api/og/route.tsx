@@ -6,7 +6,7 @@ export const runtime = 'edge';
 
 async function getGeist() {
 	const response = await fetch(
-		new URL('/public/fonts/Geist-Medium.ttf', import.meta.url)
+		new URL('/public/fonts/Geist-SemiBold.ttf', import.meta.url)
 	);
 
 	const geistSans = await response.arrayBuffer();
@@ -43,7 +43,7 @@ export async function GET(request: Request) {
 				<h2
 					tw="text-5xl text-primary"
 					style={{
-						fontWeight: 500,
+						fontWeight: 600,
 						fontFamily: 'Geist',
 					}}
 				>
@@ -63,8 +63,9 @@ export async function GET(request: Request) {
 					<div
 						style={{
 							fontFamily: 'Geist',
-							fontWeight: 400,
+							fontWeight: 600,
 							fontSize: '2rem',
+							color: '#71717a',
 						}}
 					>
 						vigi
@@ -73,6 +74,7 @@ export async function GET(request: Request) {
 			</div>
 		),
 		{
+			emoji: 'twemoji',
 			width: 1200,
 			height: 630,
 			fonts: [
