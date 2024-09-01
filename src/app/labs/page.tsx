@@ -23,6 +23,7 @@ export default function Labs() {
 				{COMPONENTS.map((component, i) => (
 					<LabsCard
 						key={i}
+						title={component.name}
 						gridClass={component.gridClass}
 						slug={component.slug}
 						button

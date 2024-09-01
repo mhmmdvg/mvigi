@@ -7,6 +7,7 @@ import { MoveRight } from 'lucide-react';
 
 type TLabsCard = {
 	children: React.ReactNode;
+	title?: string;
 	slug?: string;
 	gridClass?: 'regular-card' | 'medium-card' | 'large-card' | 'default-card';
 	button?: boolean;
@@ -15,6 +16,7 @@ type TLabsCard = {
 
 export default function LabsCard({
 	children,
+	title,
 	slug,
 	gridClass,
 	button,
@@ -38,9 +40,11 @@ export default function LabsCard({
 			<div className="absolute h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
 			{children}
 
-			<div className="absolute left-3 top-3 z-[100] h-8 w-8 transition-all duration-300 ease-in-out">
-				<h1 className="text-sm font-normal">{slug}</h1>
-			</div>
+			{title && (
+				<div className="absolute left-3 top-3 z-[100] h-8 w-8 transition-all duration-300 ease-in-out">
+					<h1 className="text-sm font-normal">{title}</h1>
+				</div>
+			)}
 			{button && (
 				<Button
 					variant="secondary"
