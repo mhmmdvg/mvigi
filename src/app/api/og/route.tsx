@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
@@ -14,6 +15,10 @@ async function getGeist() {
 
 export async function GET(request: Request) {
 	const { searchParams } = new URL(request.url);
+
+	const iconData = await fetch(
+		new URL('/public/icons/mvigi.png', import.meta.url)
+	).then((res) => res.arrayBuffer());
 
 	const hasTitle = searchParams.has('title');
 	const title = hasTitle
@@ -46,15 +51,23 @@ export async function GET(request: Request) {
 
 				<div
 					style={{
+						display: 'flex',
+						alignItems: 'center',
 						position: 'absolute',
 						bottom: '20px',
 						right: '20px',
-						fontFamily: 'Geist',
-						fontWeight: 400,
-						fontSize: '2rem',
 					}}
 				>
-					— MVIGI
+					<img height={64} width={64} src={iconData} alt="mvigi" />
+					<div
+						style={{
+							fontFamily: 'Geist',
+							fontWeight: 400,
+							fontSize: '2rem',
+						}}
+					>
+						MVIGI
+					</div>
 				</div>
 			</div>
 		),
