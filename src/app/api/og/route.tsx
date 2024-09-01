@@ -23,8 +23,8 @@ export async function GET(request: Request) {
 		: 'MVigi Frontend Developer';
 
 	const iconData = await fetch(
-		new URL('/public/icons/mvigi.png', import.meta.url).toString()
-	);
+		new URL('/public/icons/mvigi.png', import.meta.url)
+	).then((res) => res.arrayBuffer());
 
 	return new ImageResponse(
 		(
