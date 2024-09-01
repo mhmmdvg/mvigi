@@ -18,7 +18,9 @@ export async function GET(request: Request) {
 	const { searchParams } = new URL(request.url);
 
 	const hasTitle = searchParams.has('title');
-	const title = hasTitle ? searchParams.get('title')?.slice(0, 100) : 'MVigi';
+	const title = hasTitle
+		? searchParams.get('title')?.slice(0, 100)
+		: 'mvigi Frontend Developer';
 
 	const iconData = await fetch(
 		new URL('/public/icons/mvigi.png', import.meta.url)
@@ -65,7 +67,7 @@ export async function GET(request: Request) {
 							fontSize: '2rem',
 						}}
 					>
-						MVIGI
+						vigi
 					</div>
 				</div>
 			</div>
