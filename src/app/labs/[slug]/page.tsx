@@ -1,3 +1,7 @@
+import { baseUrl } from '@/app/sitemap';
+import HeaderDetail from '@/components/details/HeaderDetail';
+import ButtonShare from '@/components/shared/ButtonShare';
+import ButtonShareLink from '@/components/shared/ButtonShareLink';
 import Code from '@/components/shared/Code';
 import LabsCard from '@/components/shared/LabsCard';
 import Paragraph from '@/components/shared/Paragraph';
@@ -5,9 +9,6 @@ import { COMPONENTS } from '@/lib/labs';
 import { getDetailContent } from '@/lib/notion';
 import { getFilePathAndConfig } from '@/lib/readfile';
 import { formateDateToMonthYear } from '@/lib/utils';
-import { MoveLeft } from 'lucide-react';
-import type { Metadata } from 'next';
-import Link from 'next/link';
 import React from 'react';
 
 async function fetchLabsData(slug: string) {
@@ -20,11 +21,32 @@ export async function generateMetadata({
 	params,
 }: {
 	params: { slug: string };
-}): Promise<Metadata> {
+}) {
 	const item = await fetchLabsData(params.slug);
+
+	if (!item) {
+		return null;
+	}
 
 	return {
 		title: item?.title || params.slug,
+		description: item.description,
+		openGraph: {
+			title: item?.title || params.slug,
+			description: item.description,
+			url: `${baseUrl}/labs/${item?.slug}`,
+			type: 'article',
+			images: [
+				{
+					url: `${baseUrl}/api/og?title=${item?.title}`,
+				},
+			],
+		},
+		twitter: {
+			card: 'summary_large_image',
+			title: item.title,
+			images: [`${baseUrl}/api/og?title=${item?.title}`],
+		},
 	};
 }
 
@@ -51,10 +73,7 @@ export default async function LabsDetail({
 
 	return (
 		<main className="space-y-7">
-			<Link href={'.'} className="flex flex-row items-center space-x-2">
-				<MoveLeft className="h-4 w-4" />
-				<p className="text-sm">back</p>
-			</Link>
+			<HeaderDetail backLabel="back" shareName={item.name} />
 			<Paragraph
 				title={posts?.title}
 				subtitle={formateDateToMonthYear(posts?.date, 'numeric', 'long')}

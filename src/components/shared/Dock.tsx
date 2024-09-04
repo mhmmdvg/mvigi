@@ -47,7 +47,7 @@ export default function Dock() {
 			variants={dockVariants}
 			initial="closed"
 			animate="open"
-			className="dock-shadow fixed inset-x-0 bottom-6 z-50 mx-auto rounded-2xl bg-popover p-1"
+			className="fixed inset-x-0 bottom-6 z-50 mx-auto rounded-[14px] bg-popover p-1 shadow-[rgba(142,140,152,0.2)_0px_0px_25px,rgba(219,216,224,0.2)_0px_0px_0px_1px] dark:shadow-[rgba(111,109,120,0.1)_0px_0px_30px,rgba(60,57,63,0.4)_0px_0px_0px_1px]"
 		>
 			<ul className="relative flex items-center">
 				{activeTab !== null && (

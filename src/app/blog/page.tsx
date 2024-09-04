@@ -3,6 +3,7 @@ import { formatDate } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import React from 'react';
+import { baseUrl } from '../sitemap';
 
 async function fetchBlogData() {
 	const res = getAllPublishedContent('Blog');
@@ -11,8 +12,40 @@ async function fetchBlogData() {
 }
 
 export const metadata: Metadata = {
+	metadataBase: new URL(baseUrl),
 	title: 'Blog',
-	description: 'MVIGI Blog',
+	description: "I'm an enthusiastic Frontend Developer",
+	openGraph: {
+		title: 'Labs',
+		description: "I'm an enthusiastic Frontend Developer",
+		url: baseUrl,
+		siteName: 'Labs',
+		locale: 'en-US',
+		type: 'website',
+		images: [
+			{
+				url: `${baseUrl}/api/og?title=What i wrote? ✍🏻`,
+			},
+		],
+	},
+
+	twitter: {
+		card: 'summary_large_image',
+		title: 'Labs',
+		images: [`${baseUrl}/api/og?title=What i wrote? ✍🏻`],
+	},
+
+	robots: {
+		index: true,
+		follow: true,
+		googleBot: {
+			index: true,
+			follow: true,
+			'max-video-preview': -1,
+			'max-image-preview': 'large',
+			'max-snippet': -1,
+		},
+	},
 };
 
 export default async function Blog() {
