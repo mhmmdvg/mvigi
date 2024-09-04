@@ -1,6 +1,8 @@
 import { baseUrl } from '@/app/sitemap';
 import HeaderDetail from '@/components/details/HeaderDetail';
+import BlurFade from '@/components/motion/BlurFade';
 import { getDetailContent } from '@/lib/notion';
+import { BLUR_FADE_DELAY } from '@/lib/utils';
 import React from 'react';
 
 async function fetchBlogData(slug: string) {
@@ -61,13 +63,19 @@ export default async function BlogDetail({
 
 	return (
 		<main className="space-y-7">
-			<HeaderDetail backLabel="back to all post" shareName={blog.title} />
+			<BlurFade delay={BLUR_FADE_DELAY}>
+				<HeaderDetail backLabel="back to all post" shareName={blog.title} />
+			</BlurFade>
 			<div className="space-y-4">
-				<h1 className="text-xl font-medium">{blog.title}</h1>
-				<div
-					className="prose prose-h2:text-xl prose-h2:font-normal prose-h2:text-primary prose-p:font-light prose-p:text-muted-foreground prose-li:font-light prose-li:text-muted-foreground"
-					dangerouslySetInnerHTML={{ __html: blog.content }}
-				/>
+				<BlurFade delay={BLUR_FADE_DELAY * 3}>
+					<h1 className="text-xl font-medium">{blog.title}</h1>
+				</BlurFade>
+				<BlurFade delay={BLUR_FADE_DELAY * 4}>
+					<div
+						className="prose prose-h2:text-xl prose-h2:font-normal prose-h2:text-primary prose-p:font-light prose-p:text-muted-foreground prose-li:font-light prose-li:text-muted-foreground"
+						dangerouslySetInnerHTML={{ __html: blog.content }}
+					/>
+				</BlurFade>
 			</div>
 		</main>
 	);

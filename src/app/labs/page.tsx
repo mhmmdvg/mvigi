@@ -4,6 +4,8 @@ import { COMPONENTS } from '@/lib/labs';
 import type { Metadata } from 'next';
 import React from 'react';
 import { baseUrl } from '../sitemap';
+import BlurFade from '@/components/motion/BlurFade';
+import { BLUR_FADE_DELAY } from '@/lib/utils';
 
 export const metadata: Metadata = {
 	metadataBase: new URL(baseUrl),
@@ -45,26 +47,32 @@ export const metadata: Metadata = {
 export default function Labs() {
 	return (
 		<div className="flex flex-col space-y-10">
-			<Paragraph title="Lab">
-				<p className="font-light">
-					This is my creative space for experimenting with UI, exploring
-					components, and designing interactions.
-				</p>
-			</Paragraph>
+			<BlurFade delay={BLUR_FADE_DELAY}>
+				<Paragraph title="Lab">
+					<BlurFade delay={BLUR_FADE_DELAY * 2}>
+						<p className="font-light">
+							This is my creative space for experimenting with UI,
+							exploring components, and designing interactions.
+						</p>
+					</BlurFade>
+				</Paragraph>
+			</BlurFade>
 
-			<div className="grid w-full max-w-xl grid-flow-dense gap-6 sm:grid-cols-2">
-				{COMPONENTS.map((component, i) => (
-					<LabsCard
-						key={i}
-						title={component.name}
-						gridClass={component.gridClass}
-						slug={component.slug}
-						button
-					>
-						<component.child />
-					</LabsCard>
-				))}
-			</div>
+			<BlurFade delay={BLUR_FADE_DELAY * 3}>
+				<div className="grid w-full max-w-xl grid-flow-dense gap-6 sm:grid-cols-2">
+					{COMPONENTS.map((component, i) => (
+						<LabsCard
+							key={i}
+							title={component.name}
+							gridClass={component.gridClass}
+							slug={component.slug}
+							button
+						>
+							<component.child />
+						</LabsCard>
+					))}
+				</div>
+			</BlurFade>
 		</div>
 	);
 }

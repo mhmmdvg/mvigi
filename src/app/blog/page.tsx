@@ -1,9 +1,10 @@
 import { getAllPublishedContent } from '@/lib/notion';
-import { formatDate } from '@/lib/utils';
+import { BLUR_FADE_DELAY, formatDate } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import React from 'react';
 import { baseUrl } from '../sitemap';
+import BlurFade from '@/components/motion/BlurFade';
 
 async function fetchBlogData() {
 	const res = getAllPublishedContent('Blog');
@@ -54,28 +55,36 @@ export default async function Blog() {
 	return (
 		<div className="flex flex-col space-y-7">
 			<section className="flex flex-col space-y-3">
-				<h1 className="px-2 font-medium">My Blog</h1>
+				<BlurFade delay={BLUR_FADE_DELAY}>
+					<h1 className="px-2 font-medium">My Blog</h1>
+				</BlurFade>
 
-				<div className="flex flex-col">
-					{project &&
-						project.map((item, i) => (
-							<Link
-								key={i}
-								href={`/blog/${item.slug}`}
-								scroll={true}
-								className="flex w-full flex-row items-center justify-between rounded-md bg-popover px-2 py-3.5 mix-blend-difference transition-all hover:cursor-pointer hover:bg-primary/10"
-							>
-								<div className="flex flex-col ">
-									<h1 className="text-muted-foreground">
-										{item.title}
-									</h1>
-								</div>
-								<p className="font-mono text-xs text-muted-foreground">
-									{formatDate(item.date)}
-								</p>
-							</Link>
-						))}
-				</div>
+				<BlurFade delay={BLUR_FADE_DELAY * 3}>
+					<div className="flex flex-col">
+						{project &&
+							project.map((item, i) => (
+								<BlurFade
+									key={i}
+									delay={BLUR_FADE_DELAY * 4 + i * 0.05}
+								>
+									<Link
+										href={`/blog/${item.slug}`}
+										scroll={true}
+										className="flex w-full flex-row items-center justify-between rounded-md bg-popover px-2 py-3.5 mix-blend-difference transition-all hover:cursor-pointer hover:bg-primary/10"
+									>
+										<div className="flex flex-col ">
+											<h1 className="text-muted-foreground">
+												{item.title}
+											</h1>
+										</div>
+										<p className="font-mono text-xs text-muted-foreground">
+											{formatDate(item.date)}
+										</p>
+									</Link>
+								</BlurFade>
+							))}
+					</div>
+				</BlurFade>
 			</section>
 		</div>
 	);

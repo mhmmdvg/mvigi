@@ -1,14 +1,13 @@
 import { baseUrl } from '@/app/sitemap';
 import HeaderDetail from '@/components/details/HeaderDetail';
-import ButtonShare from '@/components/shared/ButtonShare';
-import ButtonShareLink from '@/components/shared/ButtonShareLink';
+import BlurFade from '@/components/motion/BlurFade';
 import Code from '@/components/shared/Code';
 import LabsCard from '@/components/shared/LabsCard';
 import Paragraph from '@/components/shared/Paragraph';
 import { COMPONENTS } from '@/lib/labs';
 import { getDetailContent } from '@/lib/notion';
 import { getFilePathAndConfig } from '@/lib/readfile';
-import { formateDateToMonthYear } from '@/lib/utils';
+import { BLUR_FADE_DELAY, formateDateToMonthYear } from '@/lib/utils';
 import React from 'react';
 
 async function fetchLabsData(slug: string) {
@@ -73,38 +72,56 @@ export default async function LabsDetail({
 
 	return (
 		<main className="space-y-7">
-			<HeaderDetail backLabel="back" shareName={item.name} />
-			<Paragraph
-				title={posts?.title}
-				subtitle={formateDateToMonthYear(posts?.date, 'numeric', 'long')}
-			>
-				<div className="space-y-4">
-					{posts?.content && (
-						<div
-							className="prose prose-p:font-light prose-p:text-muted-foreground"
-							dangerouslySetInnerHTML={{ __html: posts?.content }}
-						/>
-					)}
-					<LabsCard gridClass="large-card">
-						<item.child />
-					</LabsCard>
-				</div>
-			</Paragraph>
+			<BlurFade delay={BLUR_FADE_DELAY}>
+				<HeaderDetail backLabel="back" shareName={item.name} />
+			</BlurFade>
 
-			{uiLibrary && (
-				<Paragraph title="Run the following command:">
-					<div className="rounded-xl border p-2">
-						<Code code={uiLibrary} lang="bash" />
+			<BlurFade delay={BLUR_FADE_DELAY * 3}>
+				<Paragraph
+					title={posts?.title}
+					subtitle={formateDateToMonthYear(posts?.date, 'numeric', 'long')}
+				>
+					<div className="space-y-4">
+						{posts?.content && (
+							<BlurFade delay={BLUR_FADE_DELAY * 4}>
+								<div
+									className="prose prose-p:font-light prose-p:text-muted-foreground"
+									dangerouslySetInnerHTML={{ __html: posts?.content }}
+								/>
+							</BlurFade>
+						)}
+
+						<BlurFade delay={BLUR_FADE_DELAY * 5}>
+							<LabsCard gridClass="large-card">
+								<item.child />
+							</LabsCard>
+						</BlurFade>
 					</div>
 				</Paragraph>
+			</BlurFade>
+
+			{uiLibrary && (
+				<BlurFade delay={BLUR_FADE_DELAY * 6}>
+					<Paragraph title="Run the following command:">
+						<BlurFade delay={BLUR_FADE_DELAY * 7}>
+							<div className="rounded-xl border p-2">
+								<Code code={uiLibrary} lang="bash" />
+							</div>
+						</BlurFade>
+					</Paragraph>
+				</BlurFade>
 			)}
 
 			{code && (
-				<Paragraph title="Code">
-					<div className="rounded-xl border p-2">
-						<Code code={code} lang="typescript" />
-					</div>
-				</Paragraph>
+				<BlurFade delay={BLUR_FADE_DELAY * 8}>
+					<Paragraph title="Code">
+						<BlurFade delay={BLUR_FADE_DELAY * 9}>
+							<div className="rounded-xl border p-2">
+								<Code code={code} lang="typescript" />
+							</div>
+						</BlurFade>
+					</Paragraph>
+				</BlurFade>
 			)}
 		</main>
 	);
