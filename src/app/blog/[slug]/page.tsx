@@ -72,7 +72,7 @@ export default async function BlogDetail({
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
           <div
-            className="prose prose-h2:text-xl prose-h2:font-normal prose-h2:text-primary prose-p:font-light prose-p:text-muted-foreground prose-li:font-light prose-li:text-muted-foreground"
+            className="prose prose-h2:text-xl prose-h2:font-medium prose-h2:text-primary prose-p:font-light prose-p:text-muted-foreground prose-li:font-light prose-li:text-muted-foreground"
             dangerouslySetInnerHTML={{ __html: blog.content }}
           />
         </BlurFade>
