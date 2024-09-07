@@ -91,6 +91,8 @@ export async function getDetailContent(slug: string) {
 
     const html = await renderer.render(...content);
 
+    revalidatePath(`/${slug}`, 'page');
+
     return {
       ...getPageContent(detailLabs),
       content: html,
