@@ -72,7 +72,7 @@ export default async function Blog() {
                     <div className="flex flex-col ">
                       <h1 className="text-muted-foreground">{item.title}</h1>
                     </div>
-                    <p className="font-mono text-xs text-muted-foreground">
+                    <p className="text-xs text-muted-foreground">
                       {formatDate(item.date)}
                     </p>
                   </Link>
