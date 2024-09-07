@@ -5,10 +5,6 @@ import { getDetailContent } from '@/lib/notion';
 import { BLUR_FADE_DELAY } from '@/lib/utils';
 import React from 'react';
 
-export const revalidate = 60;
-
-export const dynamicParams = true;
-
 async function fetchBlogData(slug: string) {
   const res = getDetailContent(slug);
 

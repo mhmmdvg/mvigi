@@ -8,10 +8,6 @@ import { BLUR_FADE_DELAY } from '@/lib/utils';
 import type { Metadata } from 'next';
 import React from 'react';
 
-export const revalidate = 60;
-
-export const dynamicParams = true;
-
 async function fetchBlogData() {
   const res = getAllPublishedContent('Blog');
 

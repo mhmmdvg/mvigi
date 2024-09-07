@@ -38,7 +38,7 @@ export const getAllPublishedContent = async (category: string) => {
 
     const allPosts = posts.results;
 
-    revalidatePath('/project', 'page');
+    revalidatePath(`/${category.toLowerCase()}`, 'page');
 
     return allPosts.map((post) => {
       return getPageContent(post);

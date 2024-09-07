@@ -10,10 +10,6 @@ import { getFilePathAndConfig } from '@/lib/readfile';
 import { BLUR_FADE_DELAY, formateDateToMonthYear } from '@/lib/utils';
 import React from 'react';
 
-export const revalidate = 60;
-
-export const dynamicParams = true;
-
 async function fetchLabsData(slug: string) {
   const res = getDetailContent(slug);
 

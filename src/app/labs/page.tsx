@@ -7,10 +7,6 @@ import { baseUrl } from '../sitemap';
 import BlurFade from '@/components/motion/BlurFade';
 import { BLUR_FADE_DELAY } from '@/lib/utils';
 
-export const revalidate = 60;
-
-export const dynamicParams = true;
-
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: 'Labs',

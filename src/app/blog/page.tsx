@@ -6,10 +6,6 @@ import React from 'react';
 import { baseUrl } from '../sitemap';
 import BlurFade from '@/components/motion/BlurFade';
 
-export const revalidate = 60;
-
-export const dynamicParams = true;
-
 async function fetchBlogData() {
   const res = getAllPublishedContent('Blog');
 
