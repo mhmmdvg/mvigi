@@ -8,23 +8,23 @@ import { BLUR_FADE_DELAY } from '@/lib/utils';
 import React from 'react';
 
 export default function Home() {
-	return (
-		<div className="flex flex-col space-y-10">
-			<BlurFade delay={BLUR_FADE_DELAY}>
-				<ProfileSection />
-			</BlurFade>
-			<BlurFade delay={BLUR_FADE_DELAY * 3}>
-				<AboutMe />
-			</BlurFade>
-			<BlurFade delay={BLUR_FADE_DELAY * 5}>
-				<SkillSection />
-			</BlurFade>
-			<BlurFade delay={BLUR_FADE_DELAY * 7}>
-				<LabsSection />
-			</BlurFade>
-			<BlurFade delay={BLUR_FADE_DELAY * 9}>
-				<SocialSection />
-			</BlurFade>
-		</div>
-	);
+  return (
+    <div className="flex flex-col space-y-10">
+      <BlurFade delay={BLUR_FADE_DELAY}>
+        <ProfileSection />
+      </BlurFade>
+      <BlurFade delay={BLUR_FADE_DELAY * 3}>
+        <AboutMe />
+      </BlurFade>
+      <BlurFade delay={BLUR_FADE_DELAY * 5}>
+        <SkillSection />
+      </BlurFade>
+      <BlurFade delay={BLUR_FADE_DELAY * 7}>
+        <LabsSection />
+      </BlurFade>
+      <BlurFade delay={BLUR_FADE_DELAY * 9}>
+        <SocialSection />
+      </BlurFade>
+    </div>
+  );
 }

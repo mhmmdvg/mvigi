@@ -1,5 +1,6 @@
 import BlurFade from '@/components/motion/BlurFade';
 import ProjectCard from '@/components/shared/ProjectCard';
+import { variant } from '@/lib/motion';
 import { getAllPublishedContent } from '@/lib/notion';
 import { BLUR_FADE_DELAY } from '@/lib/utils';
 import type { Metadata } from 'next';
@@ -27,7 +28,12 @@ export default async function Project() {
         </BlurFade>
         {project &&
           project.map((item, i) => (
-            <BlurFade key={i} delay={BLUR_FADE_DELAY * 2 + i * 0.05}>
+            <BlurFade
+              key={i}
+              delay={BLUR_FADE_DELAY * 2 + i * 0.05}
+              variant={variant}
+              inView
+            >
               <ProjectCard
                 title={item.title}
                 href={item.link}

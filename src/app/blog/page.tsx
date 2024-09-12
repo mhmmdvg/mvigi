@@ -5,6 +5,7 @@ import Link from 'next/link';
 import React from 'react';
 import { baseUrl } from '../sitemap';
 import BlurFade from '@/components/motion/BlurFade';
+import { variant } from '@/lib/motion';
 
 async function fetchBlogData() {
   const res = getAllPublishedContent('Blog');
@@ -63,7 +64,12 @@ export default async function Blog() {
           <div className="flex flex-col">
             {project &&
               project.map((item, i) => (
-                <BlurFade key={i} delay={BLUR_FADE_DELAY * 4 + i * 0.05}>
+                <BlurFade
+                  key={i}
+                  delay={BLUR_FADE_DELAY * 4 + i * 0.05}
+                  variant={variant}
+                  inView
+                >
                   <Link
                     href={`/blog/${item.slug}`}
                     scroll={true}
