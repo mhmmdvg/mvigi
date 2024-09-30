@@ -17,6 +17,6 @@ jobs:
       - name: Install bun CLI
         run: npm install -g bun
       - name: Install CI
-        run: bun ci
+        run: bun install
       - run: bun test
       - run: bun run build
