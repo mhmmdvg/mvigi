@@ -6,12 +6,17 @@ export default function AboutMe() {
     <section className="flex w-full flex-col">
       <Paragraph title="About Me">
         <p className="font-light">
-          I&apos;m an enthusiastic Frontend and Mobile Developer with a strong
-          focus on crafting responsive and dynamic web applications and mobile
-          apps. With expertise in modern frameworks like React.js, Vue.js, React
-          Native, as well as Swift and Kotlin for mobile development, I
-          specialize in building seamless user interfaces that not only look
-          great but also provide exceptional user experiences.
+          Hey there! 👋 I&apos;m a passionate Mobile and Frontend Developer who loves
+          bringing ideas to life across all screens! I dive deep into native iOS
+          development with both UIKit and SwiftUI, while on the Android side,
+          I&apos;m right at home with Kotlin and Java. Need apps that work
+          everywhere? I&apos;ve got you covered with Flutter and React Native for
+          smooth cross-platform experiences! When it comes to web development, I
+          enjoy crafting beautiful, interactive experiences using React.js and
+          Vue.js. Whether it&apos;s a mobile app or a web platform, I&apos;m all about
+          creating solutions that don&apos;t just work great – they feel great to use
+          too! I&apos;m always excited to take on new challenges and transform ideas
+          into reality. Let&apos;s build something awesome together! ✨
         </p>
       </Paragraph>
     </section>
