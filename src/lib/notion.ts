@@ -74,7 +74,7 @@ export async function getDetailContent(slug: string) {
       },
     });
 
-    const detailLabs = res?.results[0];
+    const detailLabs = res.results[0];
 
     const responseBlockLabs = await notion.blocks.children.list({
       block_id: detailLabs.id,
