@@ -1,16 +1,17 @@
-name: Vercel Deployment
+name: Deploy Project
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 on:
   push:
-    branches-ignore:
+    branches:
       - main
 jobs:
   Deploy-Preview:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: oven-sh/setup-bun@v2
       - name: Install Bun
         run: npm install -g bun
       - name: Install Vercel CLI
