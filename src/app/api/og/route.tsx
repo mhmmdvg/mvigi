@@ -4,27 +4,21 @@ import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
 
-async function getGeist() {
-	const response = await fetch(
-		new URL('../../../../public/fonts/Geist-SemiBold.ttf', import.meta.url)
-	);
-
-	const geistSans = await response.arrayBuffer();
-
-	return geistSans;
-}
-
 export async function GET(request: Request) {
-	const { searchParams } = new URL(request.url);
+	const { searchParams, origin } = new URL(request.url);
 
 	const hasTitle = searchParams.has('title');
 	const title = hasTitle
 		? searchParams.get('title')?.slice(0, 100)
 		: 'mvigi Frontend Developer';
 
-	const iconData = await fetch(
-		new URL('../../../../public/icons/mvigi.png', import.meta.url)
-	).then((res) => res.arrayBuffer());
+	const geistSans = await fetch(`${origin}/fonts/Geist-SemiBold.ttf`).then(
+		(res) => res.arrayBuffer()
+	);
+
+	const iconData = await fetch(`${origin}/icons/mvigi.png`).then((res) =>
+		res.arrayBuffer()
+	);
 
 	return new ImageResponse(
 		(
@@ -86,7 +80,7 @@ export async function GET(request: Request) {
 			fonts: [
 				{
 					name: 'Geist',
-					data: await getGeist(),
+					data: geistSans,
 					style: 'normal',
 				},
 			],
