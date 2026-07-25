@@ -6,7 +6,7 @@ export const runtime = 'edge';
 
 async function getGeist() {
 	const response = await fetch(
-		new URL('/public/fonts/Geist-SemiBold.ttf', import.meta.url)
+		new URL('../../../../public/fonts/Geist-SemiBold.ttf', import.meta.url)
 	);
 
 	const geistSans = await response.arrayBuffer();
@@ -23,7 +23,7 @@ export async function GET(request: Request) {
 		: 'mvigi Frontend Developer';
 
 	const iconData = await fetch(
-		new URL('/public/icons/mvigi.png', import.meta.url)
+		new URL('../../../../public/icons/mvigi.png', import.meta.url)
 	).then((res) => res.arrayBuffer());
 
 	return new ImageResponse(

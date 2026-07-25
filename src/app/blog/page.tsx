@@ -1,5 +1,6 @@
 import { getAllPublishedContent } from '@/lib/notion';
 import { BLUR_FADE_DELAY, formatDate } from '@/lib/utils';
+export const revalidate = 60;
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import React from 'react';

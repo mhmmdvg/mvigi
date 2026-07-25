@@ -34,12 +34,6 @@ const items = [
 		fallback: 'MA',
 		body: 'He looks capable! Hire him.',
 	},
-	{
-		name: 'Vidya Chandradev',
-		username: 'catgoesmeow14',
-		fallback: 'CM',
-		body: 'He looks amazing!',
-	},
 ];
 
 type TMarqueeLabs = {

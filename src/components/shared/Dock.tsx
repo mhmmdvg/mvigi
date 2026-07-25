@@ -1,7 +1,7 @@
 'use client';
 
 import { easeInOut, motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -15,9 +15,12 @@ export default function Dock() {
 		navItems.find((item) => item.href === pathname)?.id || null
 	);
 
-	useEffect(() => {
+	// Re-sync the active tab when the route changes, without an effect.
+	const [prevPathname, setPrevPathname] = useState(pathname);
+	if (pathname !== prevPathname) {
+		setPrevPathname(pathname);
 		setActiveTab(navItems.find((item) => item.href === pathname)?.id || null);
-	}, [pathname]);
+	}
 
 	const duration = 0.4;
 

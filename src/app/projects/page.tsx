@@ -1,5 +1,6 @@
 import BlurFade from '@/components/motion/BlurFade';
 import ProjectCard from '@/components/shared/ProjectCard';
+export const revalidate = 60;
 import { variant } from '@/lib/motion';
 import { getAllPublishedContent } from '@/lib/notion';
 import { BLUR_FADE_DELAY } from '@/lib/utils';

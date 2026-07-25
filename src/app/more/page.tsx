@@ -1,5 +1,6 @@
 import BlurFade from '@/components/motion/BlurFade';
 import BlogCard from '@/components/shared/BlogCard';
+export const revalidate = 60;
 import CareerCard from '@/components/shared/CareerCard';
 import ProjectCard from '@/components/shared/ProjectCard';
 import SectionTitle from '@/components/shared/SectionTitle';

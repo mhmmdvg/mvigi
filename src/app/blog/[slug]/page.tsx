@@ -5,6 +5,8 @@ import { getDetailContent } from '@/lib/notion';
 import { BLUR_FADE_DELAY } from '@/lib/utils';
 import React from 'react';
 
+export const revalidate = 60;
+
 async function fetchBlogData(slug: string) {
   const res = getDetailContent(slug);
 
@@ -14,19 +16,20 @@ async function fetchBlogData(slug: string) {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const blog = await fetchBlogData(params.slug);
+  const { slug } = await params;
+  const blog = await fetchBlogData(slug);
 
   if (!blog) {
     return null;
   }
 
   return {
-    title: blog?.title || params.slug,
+    title: blog?.title || slug,
     description: `Read more about "${blog.title}" on my blog. 🚀`,
     openGraph: {
-      title: blog?.title || params.slug,
+      title: blog?.title || slug,
       description: `Read more about "${blog.title}" on my blog. 🚀`,
       url: `${baseUrl}/blog/${blog?.slug}`,
       type: 'article',
@@ -47,9 +50,10 @@ export async function generateMetadata({
 export default async function BlogDetail({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const blog = await fetchBlogData(params?.slug);
+  const { slug } = await params;
+  const blog = await fetchBlogData(slug);
 
   if (!blog) {
     return (
