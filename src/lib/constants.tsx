@@ -1,12 +1,13 @@
 import { Home, Square, FlaskRound, Package2 } from 'lucide-react';
-import Typescript from '/public/icons/typescript.svg';
-import Javascript from '/public/icons/javascript.svg';
-import Java from '/public/icons/java.svg';
-import Kotlin from '/public/icons/kotlin.svg';
-import Swift from '/public/icons/swift.svg';
-import Vue from '/public/icons/vue.svg';
-import Next from '/public/icons/next.svg';
-import React from '/public/icons/react.svg';
+
+const Typescript = '/icons/typescript.svg';
+const Javascript = '/icons/javascript.svg';
+const Java = '/icons/java.svg';
+const Kotlin = '/icons/kotlin.svg';
+const Swift = '/icons/swift.svg';
+const Vue = '/icons/vue.svg';
+const Next = '/icons/next.svg';
+const React = '/icons/react.svg';
 
 export const navItems = [
 	{
@@ -36,11 +37,11 @@ export const navItems = [
 
 export const skillItems = [
 	{ name: 'Typescript', icon: Typescript },
-	{ name: 'Javascript', icon: Javascript },
+	// { name: 'Javascript', icon: Javascript },
 	{ name: 'Java', icon: Java },
 	{ name: 'Swift', icon: Swift },
 	{ name: 'Kotlin', icon: Kotlin },
-	{ name: 'React', icon: React },
-	{ name: 'Next', icon: Next },
-	{ name: 'Vue', icon: Vue },
+	// { name: 'React', icon: React },
+	// { name: 'Next', icon: Next },
+	// { name: 'Vue', icon: Vue },
 ];

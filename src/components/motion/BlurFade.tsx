@@ -5,6 +5,7 @@ import {
   motion,
   useInView,
   UseInViewOptions,
+  Variant,
   Variants,
 } from 'framer-motion';
 import React, { useRef } from 'react';
@@ -15,8 +16,8 @@ interface BlurFadeProps {
   children: React.ReactNode;
   className?: string;
   variant?: {
-    hidden: Object;
-    visible: Object;
+    hidden: Variant;
+    visible: Variant;
   };
   duration?: number;
   delay?: number;

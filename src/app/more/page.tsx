@@ -1,5 +1,6 @@
 import BlurFade from '@/components/motion/BlurFade';
 import BlogCard from '@/components/shared/BlogCard';
+export const revalidate = 60;
 import CareerCard from '@/components/shared/CareerCard';
 import ProjectCard from '@/components/shared/ProjectCard';
 import SectionTitle from '@/components/shared/SectionTitle';
@@ -35,6 +36,8 @@ export default async function More() {
   const posts = await fetchBlogData();
   const project = await fetchProjectData();
   const career = await fetchCareerData();
+
+  console.log(career)
 
   return (
     <div className="flex flex-col space-y-12">

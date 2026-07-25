@@ -2,7 +2,6 @@ import { NotionRenderer } from '@notion-render/client';
 import { Client } from '@notionhq/client';
 import hljsPlugin from '@notion-render/hljs-plugin';
 import bookmarkPlugin from '@notion-render/bookmark-plugin';
-import { revalidatePath } from 'next/cache';
 
 const notion = new Client({ auth: process.env.NOTION_TOKEN });
 
@@ -37,8 +36,6 @@ export const getAllPublishedContent = async (category: string) => {
     });
 
     const allPosts = posts.results;
-
-    revalidatePath(`/${category.toLowerCase()}`, 'page');
 
     return allPosts.map((post) => {
       return getPageContent(post);
@@ -90,8 +87,6 @@ export async function getDetailContent(slug: string) {
     renderer.use(bookmarkPlugin(undefined));
 
     const html = await renderer.render(...content);
-
-    revalidatePath(`/${slug}`, 'page');
 
     return {
       ...getPageContent(detailLabs),

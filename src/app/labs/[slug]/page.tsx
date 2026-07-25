@@ -10,6 +10,8 @@ import { getFilePathAndConfig } from '@/lib/readfile';
 import { BLUR_FADE_DELAY, formateDateToMonthYear } from '@/lib/utils';
 import React from 'react';
 
+export const revalidate = 60;
+
 async function fetchLabsData(slug: string) {
   const res = getDetailContent(slug);
 
@@ -19,19 +21,20 @@ async function fetchLabsData(slug: string) {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const item = await fetchLabsData(params.slug);
+  const { slug } = await params;
+  const item = await fetchLabsData(slug);
 
   if (!item) {
     return null;
   }
 
   return {
-    title: item?.title || params.slug,
+    title: item?.title || slug,
     description: item.description,
     openGraph: {
-      title: item?.title || params.slug,
+      title: item?.title || slug,
       description: item.description,
       url: `${baseUrl}/labs/${item?.slug}`,
       type: 'article',
@@ -52,9 +55,10 @@ export async function generateMetadata({
 export default async function LabsDetail({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const posts = await fetchLabsData(params.slug);
+  const { slug } = await params;
+  const posts = await fetchLabsData(slug);
 
   const item = COMPONENTS.find((component) => component.slug === posts?.slug);
 
