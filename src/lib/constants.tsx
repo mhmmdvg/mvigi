@@ -36,11 +36,11 @@ export const navItems = [
 
 export const skillItems = [
 	{ name: 'Typescript', icon: Typescript },
-	{ name: 'Javascript', icon: Javascript },
+	// { name: 'Javascript', icon: Javascript },
 	{ name: 'Java', icon: Java },
 	{ name: 'Swift', icon: Swift },
 	{ name: 'Kotlin', icon: Kotlin },
-	{ name: 'React', icon: React },
-	{ name: 'Next', icon: Next },
-	{ name: 'Vue', icon: Vue },
+	// { name: 'React', icon: React },
+	// { name: 'Next', icon: Next },
+	// { name: 'Vue', icon: Vue },
 ];

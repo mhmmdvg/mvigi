@@ -27,17 +27,7 @@ export default function SocialSection() {
 					>
 						Github
 					</Link>
-					, explore my{' '}
-					<Link
-						href="https://read.cv/mvigi"
-						target="_blank"
-						rel="noopener noreferrer"
-						aria-label="Read.cv"
-						className="text-primary underline"
-					>
-						Read.cv
-					</Link>{' '}
-					profile, or email me directly at{' '}
+          {' '} or email me directly at{' '}
 					<span className="text-primary underline">
 						muhammadvikrii99@gmail.com
 					</span>

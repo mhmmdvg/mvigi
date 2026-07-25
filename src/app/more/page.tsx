@@ -36,6 +36,8 @@ export default async function More() {
   const project = await fetchProjectData();
   const career = await fetchCareerData();
 
+  console.log(career)
+
   return (
     <div className="flex flex-col space-y-12">
       <section className="flex flex-col space-y-2">
