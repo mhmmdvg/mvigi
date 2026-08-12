@@ -15,7 +15,7 @@ export default function ProfileSection() {
       </div>
       <div className=" flex flex-col">
         <h1 className="font-medium">M Vigi</h1>
-        <p className=" font-light text-muted-foreground">Frontend Engineer</p>
+        <p className=" font-light text-muted-foreground">Software Engineer</p>
       </div>
     </section>
   );
